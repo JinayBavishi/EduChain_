@@ -89,7 +89,7 @@ const Welcome = () => {
               value={formData.addressTo}
               handleChange={handleChange}
             />
-            {/* <input
+            <input
               placeholder="Amount (ETH)"
               name="amount"
               type="number"
@@ -97,7 +97,7 @@ const Welcome = () => {
               onChange={(e) => handleChange(e, "amount")}
               step="0.0001"
               className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
-            /> */}
+            />
             <Dropdown
               placeholder="Subjects"
               name="subjects"

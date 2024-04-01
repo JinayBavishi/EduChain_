@@ -1,32 +1,48 @@
 import React, { useState } from 'react';
 import { Navbar, Welcome, Footer, Services, Transactions } from "./components";
-import Login from "./components/login";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
 
   const handleLogin = (username, password) => {
-    // Simulating login logic with hardcoded credentials
+    console.log("Logging in...");
     if (username === "admin" && password === "admin") {
-      setLoggedIn(true); // Set loggedIn to true upon successful login
+      setLoggedIn(true);
     } else {
-      alert("Invalid username or password"); // Alert user for incorrect credentials
+      alert("Invalid username or password");
     }
+  };
+
+  const handleSignUp = () => {
+    setShowSignUp(true);
+  };
+
+  const handleSignUpSuccess = () => {
+    setShowSignUp(false);
   };
 
   return (
     <div className="min-h-screen">
-      {!loggedIn ? (
-        <Login onLogin={handleLogin} />
+      {!loggedIn && !showSignUp ? (
+        <Login onLogin={handleLogin} onSignUp={handleSignUp} />
       ) : (
         <>
-          <div className="gradient-bg-welcome">
-            <Navbar />
-            <Welcome />
-          </div>
-          <Services />
-          <Transactions />
-          <Footer />
+          {showSignUp ? (
+            <SignUp onSignUp={handleSignUp} onSignUpSuccess={handleSignUpSuccess} />
+          ) : (
+            <>
+              <div className="gradient-bg-welcome">
+                <Navbar />
+                <Welcome />
+              </div>
+              <Services />
+              <Transactions />
+              <Footer />
+            </>
+          )}
         </>
       )}
     </div>

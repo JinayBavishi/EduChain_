@@ -1,0 +1,17 @@
+[
+  {
+    "username": "admin",
+    "password": "admin",
+    "metamaskAddress": "0x..."
+  },
+  {
+    "username": "user1",
+    "password": "password1",
+    "metamaskAddress": "0x..."
+  },
+  {
+    "username": "user2",
+    "password": "password2",
+    "metamaskAddress": "0x..."
+  }
+]
